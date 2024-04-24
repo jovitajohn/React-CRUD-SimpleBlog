@@ -1,9 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 const BlogContext = React.createContext()
 
 export const BlogWrapper = ({children}) => { // it will be the app itself as its wrapped in blogwrapper from app.js
-    return <BlogContext.Provider value = {5}>
+    
+    const [blogPost, setBlogPosts] = useState([])
+
+    const addBlogPost= ()=>{
+        setBlogPosts( [...blogPost,{title : `BlogPost #${blogPost.length + 1}`}])
+    }
+    return <BlogContext.Provider value = {{data: blogPost , addBlogPost}}>
         {children}
     </BlogContext.Provider>
 }
