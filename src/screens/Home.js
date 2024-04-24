@@ -1,8 +1,14 @@
-import React from 'react'
-import {Text,StyleSheet} from 'react-native'
+import React,{useContext} from 'react'
+import {Text,View,StyleSheet} from 'react-native'
+import BlogContext from '../context/BlogContext'
 
 const Home = () => {
-    return <Text> Home screen</Text>
+    const value = useContext(BlogContext)
+    return <View>
+            <Text> Home screen</Text>
+            <Text> {value} </Text>
+        </View>
+
 }
 
 const styles = StyleSheet.create({
